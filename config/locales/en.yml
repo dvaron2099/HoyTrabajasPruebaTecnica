@@ -31,3 +31,24 @@
 
 en:
   hello: "Hello world"
+  banks:
+    index:
+      title: 'List of Banks'
+      new_bank: 'New Bank'
+    show:
+      back: 'Back to Banks List'
+    new:
+      title: 'New Bank'
+      back: 'Back to Banks List'
+    edit:
+      title: 'Edit Bank: %{bank_name}'
+      back: 'Back to Banks List'
+    create:
+      success: 'Bank was successfully created.'
+    update:
+      success: 'Bank was successfully updated.'
+    destroy:
+      success: 'Bank was successfully destroyed.'
+    error_occurred: 'error occurred'
+    form:
+      submit: 'Submit'
