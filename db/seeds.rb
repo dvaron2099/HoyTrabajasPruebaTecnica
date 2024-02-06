@@ -13,3 +13,32 @@ else
   puts 'Error al crear el usuario:'
   puts user.errors.full_messages
 end
+
+bank = Bank.create(
+  name: "Bancolombia"
+)
+
+if bank.persisted?
+  puts 'Banco creado exitosamente'
+else
+  puts 'Error al crear el banco:'
+  puts bank.errors.full_messages
+end
+
+provider = Provider.new(
+  name: 'Proveedor 1',
+  nit: "901362343-4",
+  contact_person: "David Varon",
+  contact_number: "3232313535",
+  account_number: "123456789"
+)
+
+# Asignar el bank_id antes de intentar guardar el proveedor
+provider.bank_id = bank.id
+
+if provider.save
+  puts 'Proveedor creado exitosamente'
+else
+  puts 'Error al crear el proveedor:'
+  puts provider.errors.full_messages
+end
