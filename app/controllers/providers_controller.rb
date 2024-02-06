@@ -1,8 +1,12 @@
 class ProvidersController < ApplicationController
-  before_action :set_banks, only: [:new, :create]
+  include Pagy::Backend
+  include Pagy::Frontend
+
+  before_action :set_provider, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
 
   def index
-    @provider = Provider.all
+    @pagy, @providers = pagy(Provider.all, items: 10)
   end
 
   def new
