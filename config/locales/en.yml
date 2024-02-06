@@ -52,3 +52,18 @@ en:
     error_occurred: 'error occurred'
     form:
       submit: 'Submit'
+  activerecord:
+    attributes:
+      provider:
+        name: 'Name'
+        nit: 'NIT'
+        contact_person: 'Contact Person'
+        contact_number: 'Contact Number'
+        bank_name: 'Bank Name'
+        account_number: 'Account Number'
+    errors:
+      models:
+        provider:
+          attributes:
+            nit:
+              invalid_nit: 'is not a valid NIT. It should have 9 digits, a hyphen, and an optional digit at the end.'
