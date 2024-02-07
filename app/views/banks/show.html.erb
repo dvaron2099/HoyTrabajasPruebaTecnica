@@ -1,0 +1,28 @@
+<h1><%= @bank.name %></h1>
+
+
+
+<% if @associated_providers.any? %>
+  <h5>Este banco posee los siguientes proveedores</h5>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre del Proveedor</th>
+        <th>Numero de cuenta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @associated_providers.each do |provider| %>
+        <tr>
+          <td><%= provider.name %></td>
+          <td><%= provider.account_number %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h5>Este banco aún no tiene proveedores asociados.</h5>
+<% end %>
+
+<%= link_to 'Editar información del Banco', edit_bank_path(@bank) %>
+<%= link_to '¿Deseas eliminar el Banco?', bank_path(@bank), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Si eliminas el Banco, eliminas sus proveedores ¿Deseas continuar?"} %>

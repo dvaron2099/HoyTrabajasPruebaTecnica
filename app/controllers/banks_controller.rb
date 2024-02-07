@@ -6,6 +6,7 @@ class BanksController < ApplicationController
   end
 
   def show
+    @associated_providers = @bank.providers
   end
 
   def new

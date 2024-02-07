@@ -1,0 +1,10 @@
+<h1><%= @provider.name %></h1>
+
+<h3>Información del proveedor</h3>
+
+<p>Este proveedor pose el nit: <%= @provider.nit %></p>
+<p>Su numero de cuenta es <%= @provider.account_number %> del banco <%= @provider.bank.name %></p>
+<p>Para mas información contactar con <%= @provider.contact_person %> al numero <%= @provider.contact_number %></p>
+
+<%= link_to 'Editar información del proveedor', edit_provider_path(@provider) %>
+<%= link_to '¿Deseas eliminar el proveedor?', provider_path(@provider), method: :delete, data: {turbo_method: :delete, turbo_confirm: "¿Deseas eliminar el proveedor?"} %>
