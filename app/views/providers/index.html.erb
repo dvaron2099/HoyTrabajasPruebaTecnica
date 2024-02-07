@@ -22,7 +22,7 @@
           <td><%= provider.account_number.presence || 'Sin información en la tabla' %></td>
           <td>
             <%= link_to 'Editar', edit_provider_path(provider) %> |
-            <%= link_to 'Eliminar', provider, method: :delete, data: { confirm: '¿Estás seguro?' } %>
+            <%= link_to 'Eliminar', provider_path(provider), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </td>
         </tr>
       <% end %>

@@ -35,7 +35,8 @@ class BanksController < ApplicationController
 
   def destroy
     @bank.destroy
-    redirect_to banks_url, notice: t('banks.destroy.success')
+    flash[:success] = t('banks.destroy.success')
+    redirect_to banks_url
   end
 
   private

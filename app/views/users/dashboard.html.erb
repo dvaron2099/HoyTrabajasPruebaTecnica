@@ -5,5 +5,11 @@
   <p>Número de Proveedores Registrados: <%= @provider_count %></p>
 </div>
 <%= link_to "Ver todos los proveedores", providers_path %>
+<br>
+<%= link_to "Ver todos los bancos", banks_path %>
+<br>
+<%= link_to "Añadir nuevo banco", new_bank_path %>
+<br>
+<%= link_to "Añadir nuevo proveedor", new_provider_path %>
 
 <%= link_to "Cerrar Sesión", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
