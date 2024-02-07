@@ -1,35 +1,40 @@
-<h1>Lista de Proveedores</h1>
 
-<% if @providers.any? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Nombre del proveedor</th>
-        <th>Nombre de contacto</th>
-        <th>Número de celular</th>
-        <th>Nombre del banco</th>
-        <th>Número de cuenta</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @providers.each do |provider| %>
-        <tr>
-          <td><%= link_to provider.name, provider %></td>
-          <td><%= provider.contact_person.presence || 'Sin información en la tabla' %></td>
-          <td><%= provider.contact_number.presence || 'Sin información en la tabla' %></td>
-          <td><%= provider.bank_name.presence || 'Sin información en la tabla' %></td>
-          <td><%= provider.account_number.presence || 'Sin información en la tabla' %></td>
-          <td>
-            <%= link_to 'Editar', edit_provider_path(provider) %> |
-            <%= link_to 'Eliminar', provider_path(provider), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-
-<% else %>
-  <p>Sin proveedores registrados.</p>
-<% end %>
+<div class="provider-list">
+  <div class="container">
+    <h1 class="row justify-content-center py-5 contorn-effect ">Lista de Proveedores</h1>
+    <% if @providers.any? %>
+      <div class="table-responsive">
+        <table class="table table-dark table-striped-columns">
+          <thead>
+            <tr>
+              <th>Nombre del proveedor</th>
+              <th>Nombre de contacto</th>
+              <th>Número de celular</th>
+              <th>Nombre del banco</th>
+              <th>Número de cuenta</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @providers.each do |provider| %>
+              <tr>
+                <td><i class="fa-solid fa-person px-2"></i><%= link_to provider.name, provider, class:"link-success" %></td>
+                <td><%= provider.contact_person.presence || 'Sin información en la tabla' %></td>
+                <td><%= provider.contact_number.presence || 'Sin información en la tabla' %></td>
+                <td><i class="fa-solid fa-building-columns px-2"></i><%= provider.bank_name.presence || 'Sin información en la tabla' %></td>
+                <td><%= provider.account_number.presence || 'Sin información en la tabla' %></td>
+                <td>
+                  <%= link_to 'Editar', edit_provider_path(provider) %> |
+                  <%= link_to 'Eliminar', provider_path(provider),
+                  method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      <p>Sin proveedores registrados.</p>
+    <% end %>
+  </div>
+</div>

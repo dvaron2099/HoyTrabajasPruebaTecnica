@@ -1,23 +1,26 @@
-<h1>Lista de Bancos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre del Banco</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @banks.each_with_index do |bank, index| %>
-      <tr>
-        <td><%= index + 1 %></td>
-        <td><%= link_to bank.name, bank %></td>
-        <td>
-          <%= link_to 'Editar', edit_bank_path(bank) %> |
-          <%= link_to 'Eliminar', bank_path(bank), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Si eliminas el Banco, eliminas sus proveedores ¿Deseas continuar?"} %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="banks-list">
+  <div class="container">
+    <h1 class="row justify-content-center py-5 contorn-effect ">Lista de Bancos</h1>
+    <table class="table table-dark table-striped-columns">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre del Banco</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @banks.each_with_index do |bank, index| %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><i class="fa-solid fa-building-columns px-2"><%= link_to bank.name, bank, class:"px-2 link-success" %></td>
+            <td>
+              <%= link_to 'Editar', edit_bank_path(bank) %> |
+              <%= link_to 'Eliminar', bank_path(bank), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Si eliminas el Banco, eliminas sus proveedores ¿Deseas continuar?"} %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

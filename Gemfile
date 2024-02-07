@@ -2,7 +2,8 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'devise'
-gem 'pagy'
+gem 'pagy', '>= 3.8', '< 4.0'
+
 
 ruby "3.1.2"
 
