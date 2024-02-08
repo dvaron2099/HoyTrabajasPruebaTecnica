@@ -1,7 +1,12 @@
-
+<nav style="--bs-breadcrumb-divider: '->';" aria-label="breadcrumb">
+  <ol class="breadcrumb container pt-5">
+    <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">Lista de proovedores</li>
+  </ol>
+</nav>
 <div class="provider-list">
   <div class="container">
-    <h1 class="row justify-content-center py-5 contorn-effect ">Lista de Proveedores</h1>
+    <h1 class="row justify-content-center pb-5 contorn-effect ">Lista de Proveedores</h1>
     <% if @providers.any? %>
       <div class="table-responsive">
         <table class="table table-dark table-striped-columns">

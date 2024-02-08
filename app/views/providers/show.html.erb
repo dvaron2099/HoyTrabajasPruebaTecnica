@@ -1,3 +1,10 @@
+<nav style="--bs-breadcrumb-divider: '->';" aria-label="breadcrumb">
+  <ol class="breadcrumb container pt-5">
+    <li class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></li>
+    <li class="breadcrumb-item"><%= link_to 'Lista de proovedores', providers_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @provider.name %></li>
+  </ol>
+</nav>
 <div class="provider">
   <div class="container">
     <div class="row justify-content-center">
