@@ -21,9 +21,9 @@ class ProvidersController < ApplicationController
   def create
     @provider = Provider.new(provider_params)
     if @provider.save
-      flash[:success] = t('providers.create.success')
-      redirect_to @provider
+      redirect_to @provider, notice: t('providers.create.success')
     else
+      Rails.logger.debug @provider.errors.full_messages
       render :new
     end
   end
@@ -33,8 +33,7 @@ class ProvidersController < ApplicationController
 
   def update
     if @provider.update(provider_params)
-      flash[:success] = t('providers.update.success')
-      redirect_to @provider
+      redirect_to @provider, notice: t('providers.update.success')
     else
       render :edit
     end
@@ -57,6 +56,6 @@ class ProvidersController < ApplicationController
   end
 
   def provider_params
-    params.require(:provider).permit(:name, :nit, :contact_person, :contact_number, :bank_id, :account_number)
+    params.require(:provider).permit(:name, :nit, :contact_person, :contact_number, :bank_id, :account_number, bank_attributes: [:name])
   end
 end

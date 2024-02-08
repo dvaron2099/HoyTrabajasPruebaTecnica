@@ -12,8 +12,12 @@
         <h1 class="contorn-effect py-4"><%= @provider.name %></h1>
         <h4>Información del proveedor</h4>
         <p>Este proveedor pose el nit: <strong><%= @provider.nit %></strong></p>
-        <p>Su numero de cuenta es <strong><%= @provider.account_number %></strong> del banco
-        <strong><%= @provider.bank.name %></strong></p>
+        <% if @provider.account_number.present? %>
+          <p>Su número de cuenta es <strong><%= @provider.account_number %></strong> del banco
+          <strong><%= @provider.bank.name %></strong></p>
+        <% else %>
+          <p>Está asociado al banco <strong><%= @provider.bank.name %></strong> sin número de cuenta</p>
+        <% end %>
         <p>Para mas información contactar con <strong><%= @provider.contact_person %></strong> al numero
         <strong><%= @provider.contact_number %></strong></p>
         <%= link_to 'Editar información del proveedor', edit_provider_path(@provider),class:"btn btn-primary" %>
