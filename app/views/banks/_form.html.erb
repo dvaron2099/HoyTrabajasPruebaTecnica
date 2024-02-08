@@ -1,11 +1,22 @@
-<%= simple_form_for(@bank) do |f| %>
-  <%= f.error_notification %>
+<div class="form-bank d-flex justify-content-center">
+  <div class="container bg-white rounded-5 shadow p-5">
+    <div class="row">
+      <div class="col">
+        <%= simple_form_for(@bank) do |f| %>
+          <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name, label: "Nombre del Banco", required: true %>
-  </div>
+          <div class="form-inputs">
+            <%= f.input :name,
+                        label: "Nombre del Banco",
+                        required: true %>
+          </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Guardar Banco" %>
+          <div class="form-actions text-center">
+            <%= f.button :submit, "Guardar Banco",
+                          class: "btn btn-primary"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>

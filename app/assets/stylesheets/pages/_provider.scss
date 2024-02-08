@@ -1,8 +1,14 @@
 .provider {
   h4 {
-    color: rgb(255, 255, 255);
+    color: $text;
   }
   p {
-    color: rgb(169, 169, 169);
+    color: $text;
+  }
+}
+
+.form-provider {
+  .container {
+    width: 50%;
   }
 }
