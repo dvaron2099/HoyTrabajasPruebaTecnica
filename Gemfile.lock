@@ -266,12 +266,12 @@ DEPENDENCIES
   bootstrap (~> 5.2)
   capybara
   debug
-  devise
+  devise (~> 4.9.3)
   dotenv-rails
   font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder
-  pagy
+  pagy (~> 6.4.3)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.8)
